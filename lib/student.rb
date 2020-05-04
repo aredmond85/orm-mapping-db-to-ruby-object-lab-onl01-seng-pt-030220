@@ -28,8 +28,13 @@ class Student
       SELECT *
       FROM students
     SQL
+<<<<<<< HEAD
 
     DB[:conn].execute(sql).map do |row|
+=======
+    
+    DB[:conn].execute(sql).map do |row| 
+>>>>>>> c9c7cc6688cfd744f31fd35b5f03cab5c9a3829d
       self.new_from_db(row)
     end
   end
@@ -37,6 +42,22 @@ class Student
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
+<<<<<<< HEAD
+=======
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE name = ?
+      LIMIT 1
+    SQL
+    
+    DB[:conn].execute(sql, name).map do |row|
+      self.new_from_db(row)
+    end.first
+  end
+  
+  def save
+>>>>>>> c9c7cc6688cfd744f31fd35b5f03cab5c9a3829d
     sql = <<-SQL
       SELECT *
       FROM students
